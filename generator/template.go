@@ -127,7 +127,7 @@ namespace {{$.Namespace}}
 		{{end}}
     };
 
-	void register{{$service.Name}}Service(gayrpc::core::RpcTypeHandleManager::PTR rpcTypeHandleManager,
+	inline void register{{$service.Name}}Service(gayrpc::core::RpcTypeHandleManager::PTR rpcTypeHandleManager,
         const {{$service.Name}}Service::PTR& service,
         const UnaryServerInterceptor& inboundInterceptor,
         const UnaryServerInterceptor& outboundInterceptor)
