@@ -153,10 +153,16 @@ func (g *Generator) GenerateAllFiles() {
 					messageID:  int32(id),
 				}
 			}).ToSlice(&d.Methods)
-			for i, v := range d.Methods {
-				if v.messageID == 0 {
-					v.messageID = int32(i) + 1
+
+			idMap := make(map[int32]string)
+			for _, v := range d.Methods {
+				if existName, ok := idMap[v.messageID]; ok {
+					g.Fail(v.name,
+						"'s message_id :",
+						strconv.Itoa(int(v.messageID)),
+							" already exists of service function name:", existName)
 				}
+				idMap[v.messageID] = v.name
 			}
 			return d
 		}).ToSlice(&d.Services)
