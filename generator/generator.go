@@ -99,6 +99,10 @@ func (fd *FileDescriptor) ContainerNamespace() string {
 	return fmt.Sprintf("%s::", strings.Join(strings.Split(fd.packageName, "."), "::"))
 }
 
+func (fd *FileDescriptor) PackageNames() []string {
+	return strings.Split(fd.packageName, ".")
+}
+
 // ---------------------------------------------------------------------------------------------------------------------
 
 type Generator struct {
