@@ -27,11 +27,11 @@ func (fd *Method) Name() string {
 }
 
 func (fd *Method) MethodName() string {
-	return strings.ToLower(fd.name)
+	return fd.name
 }
 
 func (fd *Method) EnumName() string {
-	return strings.ToLower(fd.name)
+	return fd.name
 }
 
 func (fd *Method) InputType() string {
