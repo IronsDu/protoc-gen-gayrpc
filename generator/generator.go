@@ -84,7 +84,10 @@ func (fd *FileDescriptor) GeneratedFilename() string {
 }
 
 func (fd *FileDescriptor) MacroName() string {
-	return fmt.Sprintf("_%s_H", strings.ToUpper(fd.fileNameWithoutExt()))
+	packetMacro := strings.Join(strings.Split(fd.packageName, "."), "_")
+	return fmt.Sprintf("%s_%s_H",
+		strings.ToUpper(packetMacro),
+		strings.ToUpper(fd.fileNameWithoutExt()))
 }
 
 func (fd *FileDescriptor) ModelFileName() string {
@@ -164,7 +167,7 @@ func (g *Generator) GenerateAllFiles() {
 					g.Fail(v.name,
 						"'s message_id :",
 						strconv.Itoa(int(v.messageID)),
-							" already exists of service function name:", existName)
+						" already exists of service function name:", existName)
 				}
 				idMap[v.messageID] = v.name
 			}
