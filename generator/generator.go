@@ -7,10 +7,10 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/ahmetb/go-linq/v3"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	"github.com/golang/protobuf/protoc-gen-go/plugin"
-	"gopkg.in/ahmetb/go-linq.v3"
 
 	"github.com/IronsDu/protoc-gen-gayrpc/protoc-plugin"
 )

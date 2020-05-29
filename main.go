@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/IronsDu/protoc-gen-gayrpc/generator"
+	"github.com/golang/protobuf/proto"
 	"io/ioutil"
 	"os"
-	"github.com/golang/protobuf/proto"
-	"github.com/IronsDu/protoc-gen-gayrpc/generator"
 )
 
 func main() {
